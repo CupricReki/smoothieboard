@@ -225,7 +225,7 @@ temperature_control.hotend.d_factor          9                #
 # ---------------------------------------------------------------------
 temperature_control.bed.enable               true             #
 temperature_control.bed.thermistor_pin       0.24             #
-temperature_control.bed.heater_pin           2.7              #
+temperature_control.bed.heater_pin           1.23              #
 
 temperature_control.bed.thermistor           Honeywell100K    # 
 temperature_control.bed.set_m_code           140              #
