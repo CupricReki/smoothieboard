@@ -187,7 +187,7 @@ temperature_control.hotend.designator        T0              #
 temperature_control.hotend.max_temp         350              # Set maximum temperature - Will prevent heating above 300 by default
 temperature_control.hotend.min_temp         5                # Set minimum temperature - Will prevent heating below 0 by default
 temperature_control.hotend.runaway_heating_timeout  120      # Max time for hotend heatup - max is 4088 seconds
-temperature_control.hotend.runaway_range      20       # Detects if a heater is stuck on Max setting is 63°C
+temperature_control.hotend.runaway_range      80       # Detects if a heater is stuck on Max setting is 63°C
 
 
 # Hotend PID configuration
@@ -239,7 +239,7 @@ temperature_control.bed.max_pwm                          255             # Limit
 #temperature_control.bed.i_max                           100             # Maximum value for the I variable in the PID control.
 temperature_control.bed.max_temp                         125
 temperature_control.bed.runaway_heating_timeout          4088            # Max time for bed heatup - max is 4088 seconds
-temperature_control.bed.runaway_range                    10              # Detects if a heater is stuck on Max setting is 63°C
+temperature_control.bed.runaway_range                    40              # Detects if a heater is stuck on Max setting is 63°C
 
 
 
