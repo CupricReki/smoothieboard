@@ -255,6 +255,10 @@ temperature_control.heatenclosure.designator          T1               #
 temperature_control.heatenclosure.max_temp            60         # Set maximum temperature
 temperature_control.heatenclosure.bang_bang           true         # Heater is controlled with SSR, use bang_bang instead of PID loop 
 temperature_control.heatenclosure.hysteresis        2.00         # Set to the temperature in degrees C to use as hysteresis for bang bang control
+temperature_control.heatenclosure.runaway_heating_timeout  0    # Timeout for heatup. 0 = disabled
+temperature_control.module_name.runaway_range		30		# If set to non-zero, and the target temperature is reached,
+                                                            # and temperature diverges from the target temperature by more than this,
+                                                            # the system will be forced into a HALT state.
 # ---------------------------------------------------------------------
 
 
