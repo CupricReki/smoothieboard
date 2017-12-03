@@ -109,7 +109,7 @@ uart0.baud_rate                              250000           # Baud rate for th
 second_usb_serial_enable                     false            # This enables a second usb serial port (to have both pronterface
                                                               # and a terminal connected)
 #leds_disable                                true             # disable using leds after config loaded
-msd_disable                                  true            # disable the MSD (USB SDCARD) when set to true
+msd_disable                                  true             # disable the MSD (USB SDCARD) when set to true
 #dfu_enable                                  false            # for linux developers, set to true to enable DFU
 #watchdog_timeout                            10               # watchdog timeout in seconds, default is 10, set to 0 to disable the watchdog
 # ---------------------------------------------------------------------
@@ -119,13 +119,14 @@ msd_disable                                  true            # disable the MSD (
 
 # Power Supply
 # ---------------------------------------------------------------------
-switch.psu.enable           true    # Enabling the power supply control
-switch.psu.output_pin       1.22    # set to open drain, inverted to control an ATX PSON signal
-switch.psu.output_type        digital   # Digial output
-switch.psu.input_on_command     M80     # Gcode for enable
-switch.psu.input_off_command    M81     # Gcode for disable
-switch.psu.startup_state      true    # Leave PSU on at boot PSON signal
-switch.psu.fail_safe_set_to         1           # so the ATX turns off on a system crash
+switch.psu.enable                                true           # Enabling the power supply control
+switch.psu.output_pin                            1.22           # set to open drain, inverted to control an ATX PSON signal
+switch.psu.output_type                           digital        # Digial output
+switch.psu.input_on_command                      M80            # Gcode for enable
+switch.psu.input_off_command                     M81            # Gcode for disable
+switch.psu.startup_state                         true           # Leave PSU on at boot PSON signal
+switch.psu.fail_safe_set_to                      1              # so the ATX turns off on a system crash
+switch.psu.ignore_on_halt                        false          # so the PSU turns off on a HALT condition (like limit trigger)
 # ---------------------------------------------------------------------
 
 
@@ -174,17 +175,20 @@ delta_current                                   1.5              # Extruder moto
 
 # Hotend temperature control configuration
 # ---------------------------------------------------------------------
-temperature_control.hotend.enable            true             # Whether to activate this ( "hotend" ) module at all. All configuration is ignored if false.
-temperature_control.hotend.thermistor_pin    0.23             # Pin for the thermistor to read
+temperature_control.hotend.enable            true            # Whether to activate this ( "hotend" ) module at all. All configuration is ignored if false.
+temperature_control.hotend.thermistor_pin    0.23            # Pin for the thermistor to read
 temperature_control.hotend.heater_pin        2.5             # Pin that controls the heater
-temperature_control.hotend.thermistor        Semitec          # see http://smoothieware.org/temperaturecontrol#toc5
-#temperature_control.hotend.beta             4066             # or set the beta value
+temperature_control.hotend.thermistor        Semitec         # see http://smoothieware.org/temperaturecontrol#toc5
+#temperature_control.hotend.beta             4066            # or set the beta value
 
-temperature_control.hotend.set_m_code        104              #
-temperature_control.hotend.set_and_wait_m_code 109            #
-temperature_control.hotend.designator        T0               #
-#temperature_control.hotend.max_temp         300              # Set maximum temperature - Will prevent heating above 300 by default
-#temperature_control.hotend.min_temp         5                # Set minimum temperature - Will prevent heating below 0 by default
+temperature_control.hotend.set_m_code        104             #
+temperature_control.hotend.set_and_wait_m_code 109           #
+temperature_control.hotend.designator        T0              #
+temperature_control.hotend.max_temp         350              # Set maximum temperature - Will prevent heating above 300 by default
+temperature_control.hotend.min_temp         5                # Set minimum temperature - Will prevent heating below 0 by default
+temperature_control.hotend.runaway_heating_timeout  120      # Max time for hotend heatup - max is 4088 seconds
+temperature_control.hotend.runaway_range      20       # Detects if a heater is stuck on Max setting is 63°C
+
 
 # Hotend PID configuration
 # ---------------------------------------------------------------------
@@ -225,15 +229,19 @@ temperature_control.hotend.d_factor          9                #
 # ---------------------------------------------------------------------
 temperature_control.bed.enable               true             #
 temperature_control.bed.thermistor_pin       0.24             #
-temperature_control.bed.heater_pin           1.23              #
+temperature_control.bed.heater_pin           1.23             #
 
 temperature_control.bed.thermistor           Honeywell100K    # 
 temperature_control.bed.set_m_code           140              #
 temperature_control.bed.set_and_wait_m_code  190              #
 temperature_control.bed.designator           B                #
-temperature_control.bed.max_pwm              255               # Limit amperage being controlled by board
+temperature_control.bed.max_pwm              255              # Limit amperage being controlled by board
 # temperature_control.bed.i_max              100              # Maximum value for the I variable in the PID control.
 temperature_control.bed.max_temp             125
+temperature_control.bed.runaway_heating_timeout 1200          # Max time for bed heatup - max is 4088 seconds
+temperature_control.hotend.runaway_range      10              # Detects if a heater is stuck on Max setting is 63°C
+
+
 
 #temperature_control.bed.bang_bang            false           # set to true to use bang bang control rather than PID
 #temperature_control.bed.hysteresis           2.0             # set to the temperature in degrees C to use as hysteresis
@@ -374,7 +382,7 @@ zprobe.slow_feedrate                         5               # mm/sec probe feed
 #zprobe.debounce_count                       100             # set if noisy
 zprobe.fast_feedrate                         20             # move feedrate mm/sec
 zprobe.probe_height                          300              # how much above bed to start probe
-#gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
+gamma_min_endstop                           nc              # normally 1.28. Change to nc to prevent conflict,
 
 # associated with zprobe the leveling strategy to use
 delta_homing                                 true
@@ -408,6 +416,12 @@ kill_button_pin                              2.12             # kill button pin.
 # ---------------------------------------------------------------------
 
 
+
+# Halt detection
+# ---------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------
 
 
 # Panel
