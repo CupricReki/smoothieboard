@@ -227,25 +227,25 @@ temperature_control.hotend.d_factor          9                #
 
 # Heated bed configuration
 # ---------------------------------------------------------------------
-temperature_control.bed.enable               true             #
-temperature_control.bed.thermistor_pin       0.24             #
-temperature_control.bed.heater_pin           1.23             #
+temperature_control.bed.enable                           true            #
+temperature_control.bed.thermistor_pin                   0.24            #
+temperature_control.bed.heater_pin                       1.23            #
 
-temperature_control.bed.thermistor           Honeywell100K    # 
-temperature_control.bed.set_m_code           140              #
-temperature_control.bed.set_and_wait_m_code  190              #
-temperature_control.bed.designator           B                #
-temperature_control.bed.max_pwm              255              # Limit amperage being controlled by board
-# temperature_control.bed.i_max              100              # Maximum value for the I variable in the PID control.
-temperature_control.bed.max_temp             125
-temperature_control.bed.runaway_heating_timeout 1200          # Max time for bed heatup - max is 4088 seconds
-temperature_control.hotend.runaway_range      10              # Detects if a heater is stuck on Max setting is 63°C
+temperature_control.bed.thermistor                       Honeywell100K   #
+temperature_control.bed.set_m_code                       140             #
+temperature_control.bed.set_and_wait_m_code              190             #
+temperature_control.bed.designator                       B               #
+temperature_control.bed.max_pwm                          255             # Limit amperage being controlled by board
+#temperature_control.bed.i_max                           100             # Maximum value for the I variable in the PID control.
+temperature_control.bed.max_temp                         125
+temperature_control.bed.runaway_heating_timeout          4088            # Max time for bed heatup - max is 4088 seconds
+temperature_control.bed.runaway_range                    10              # Detects if a heater is stuck on Max setting is 63°C
 
 
 
-#temperature_control.bed.bang_bang            false           # set to true to use bang bang control rather than PID
-#temperature_control.bed.hysteresis           2.0             # set to the temperature in degrees C to use as hysteresis
-                                                              # when using bang bang
+#temperature_control.bed.bang_bang                        false          # set to true to use bang bang control rather than PID
+#temperature_control.bed.hysteresis                       2.0            # set to the temperature in degrees C to use as hysteresis
+                                                                         # when using bang bang
 # ---------------------------------------------------------------------
 
 
@@ -256,7 +256,8 @@ temperature_control.hotend.runaway_range      10              # Detects if a hea
 temperature_control.heatenclosure.enable              true            # Whether to activate this ( "heat enclosure" ) module at all. All configuration is ignored if false.
 temperature_control.heatenclosure.thermistor_pin      0.25             # Pin for the thermistor to read 
 temperature_control.heatenclosure.heater_pin          1.30             # Pin that controls the enclosure SSR heater
-temperature_control.heatenclosure.thermistor          Semitec          # see src/modules/tools/temperaturecontrol/TemperatureControl.cpp:64 for a list of valid thermistor names
+temperature_control.heatenclosure.thermistor          Semitec          # see src/modules/tools/temperaturecontrol/TemperatureControl.cpp:64 for a
+                                                                       # list of valid thermistor names
 temperature_control.heatenclosure.set_m_code          108            #
 temperature_control.heatenclosure.set_and_wait_m_code 180           #
 temperature_control.heatenclosure.designator          T1               #
